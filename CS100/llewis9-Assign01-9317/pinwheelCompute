@@ -1,0 +1,91 @@
+# import turtle graphics library
+import turtle
+
+# import math functions
+import math
+
+
+# COPY CODE FROM LAB 3 for drawSquareFromCenter()
+def drawSquareFromCenter(turtle, x):
+    turtle.penup()
+    turtle.forward(-x / 2)
+    turtle.right(90)
+    turtle.forward(x / 2)
+    turtle.left(90)
+    turtle.pendown()
+    turtle.forward(x)
+    turtle.left(90)
+    turtle.forward(x)
+    turtle.left(90)
+    turtle.forward(x)
+    turtle.left(90)
+    turtle.forward(x)
+    turtle.left(90)
+    turtle.penup()
+    turtle.forward(x / 2)
+    turtle.left(90)
+    turtle.forward(x / 2)
+    turtle.right(90)
+
+
+def main():
+    # Create turtle
+    bob = turtle.Turtle()
+
+    # Get user input for size of first square
+    size1 = int(input('Enter size for first square:'))
+    size2 = int(input('Enter size for first square:'))
+    size3 = int(input('Enter size for first square:'))
+    size4 = int(input('Enter size for first square:'))
+
+    halfsize1 = size1 / 2
+    halfsize2 = size2 / 2
+    halfsize3 = size3 / 2
+    halfsize4 = size4 / 2
+    y = size3 / 2
+    x = size3 / 2
+
+    hypotenuse2 = math.sqrt((halfsize2 ** 2) + (halfsize2 ** 2))
+
+    dx = halfsize3 - halfsize4
+    dy = halfsize3 + halfsize4
+    dist = math.sqrt((dx*dx) + (dy*dy))
+
+    # Draw graphics
+    bob.penup()
+    bob.forward(halfsize1)
+    bob.left(90)
+    bob.forward(halfsize1)
+    drawSquareFromCenter(bob, size1)
+    bob.left(90)
+    bob.forward(halfsize1)
+    bob.left(90)
+    bob.forward(halfsize1)
+    bob.left(90)
+
+    bob.right(45)
+    bob.forward(hypotenuse2)
+    bob.left(45)
+    drawSquareFromCenter(bob, size2)
+    bob.left(135)
+    bob.forward(hypotenuse2)
+    bob.right(135)
+
+    bob.setposition(-x, -y)
+    drawSquareFromCenter(bob, size3)
+
+    bob.left(90)
+    bob.right(math.degrees(math.atan2(dx, dy)))
+    bob.forward(dist)
+    bob.left(math.degrees(math.atan2(dx, dy)))
+    drawSquareFromCenter(bob, size4)
+
+    bob.right(135)
+    bob.forward(math.hypot(halfsize4,halfsize4))
+    bob.left(45)
+    # Press <enter> to exit program
+    input()
+
+
+# Execute
+main()

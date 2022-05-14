@@ -1,0 +1,17 @@
+CMakeLists.txt
+exam02.cpp
+examfunc.cpp
+objloader.cpp
+utils.cpp
+lighting.h
+objloader.h
+utils.h
+vgl.h
+vmath.h
+phong.vert
+phong.frag
+submit.txt
+Written.txt
+include
+lib
+models

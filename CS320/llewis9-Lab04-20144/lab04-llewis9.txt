@@ -1,0 +1,296 @@
+1.  the title for each book written by Stephen Hawking
+
+Query:
+select title
+    from books, authors
+    where lastname = 'Hawking' and firstname = 'Stephen'
+    and books.author_id = authors.author_id;
+
+Result:
+                     TITLE
+--------------------------
+   A Brief History of Time
+The Universe in a Nutshell
+ A Briefer History of Time
+          The Grand Design
+OK (4 rows(s))
+
+2.  the title and year of publishing for each book written by Douglas Adams
+
+Query:
+select title, published
+    from books, authors
+    where lastname = 'Adams' and firstname = 'Douglas'
+    and books.author_id = authors.author_id;
+
+Result:
+                                    TITLE PUBLISHED
+----------------------------------------- ---------
+     The Hitchhiker's Guide to the Galaxy      1979
+The Restaurant at the End of the Universe      1980
+        Life, The Universe and Everything      1982
+     So Long, and Thanks for all the Fish      1984
+OK (4 rows(s))
+
+3.  the author’s name (first and last), the ISBN, and the year published for the book with the title “Something Under the Bed is Drooling”
+
+Query:
+select lastname, firstname, isbn, published
+	from books, authors
+	where books.title='Something Under the Bed is Drooling'
+	and books.author_id=authors.author_id;
+
+Result:
+ LASTNAME FIRSTNAME          ISBN PUBLISHED
+--------- --------- ------------- ---------
+Watterson      Bill 0-836-21825-6      1988
+OK (1 rows(s))
+
+4.  all of the authors for “The Complete Monty Python’s Flying Circus; All the Words, Volume 1”
+
+Query:
+select distinct lastname, firstname
+	from authors, books
+ 	where books.title='The Complete Monty Python''s Flying Circus; All the Words, Volume 1';
+	or authors.author_id=books.author_id;
+
+Result:
+LASTNAME FIRSTNAME
+--------- ---------
+    Adams   Douglas
+    Adams     Scott
+ Breathed  Berkeley
+  Chapman    Graham
+   Cleese      John
+  Gilliam     Terry
+  Hawking   Stephen
+     Idle      Eric
+    Jones     Terry
+ Kahneman    Daniel
+ Mlodinow   Leonard
+   Newton     Isaac
+    Palin   Michael
+Watterson      Bill
+
+OK (15 rows(s))
+
+5.  the title and author for each of Berkeley Breathed’s and Bill Watterson’s books, sorted in ascending order by title
+
+Query:
+select title, lastname, firstname
+	from books, authors
+	where authors.lastname='Breathed' and authors.firstname='Berkeley'
+	or authors.lastname='Watterson' and authors.firstname='Bill'
+	and books.author_id = authors.author_id
+	order by title ASC;
+
+Result:
+                                                             TITLE  LASTNAME FIRSTNAME
+------------------------------------------------------------------ --------- ---------
+                                           A Brief History of Time  Breathed  Berkeley
+                                         A Briefer History of Time  Breathed  Berkeley
+                                         A Briefer History of Time  Breathed  Berkeley
+           Attack of the Deranged Mutant Killer Monster Snow Goons Watterson      Bill
+           Attack of the Deranged Mutant Killer Monster Snow Goons  Breathed  Berkeley
+                                                 Calvin and Hobbes Watterson      Bill
+                                                 Calvin and Hobbes  Breathed  Berkeley
+                                 Life, The Universe and Everything  Breathed  Berkeley
+                  Penguin Dreams and Stranger Things: Bloom County  Breathed  Berkeley
+                      Philosophiae Naturalis Principia Mathematica  Breathed  Berkeley
+  Scientific Progress Goes 'Boink': A Calvin and Hobbes Collection Watterson      Bill
+  Scientific Progress Goes 'Boink': A Calvin and Hobbes Collection  Breathed  Berkeley
+                              So Long, and Thanks for all the Fish  Breathed  Berkeley
+                               Something Under the Bed is Drooling Watterson      Bill
+                               Something Under the Bed is Drooling  Breathed  Berkeley
+                          Tales Too Ticklish to Tell: Bloom County  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 1  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 1  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 1  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 1  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 1  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 1  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 2  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 2  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 2  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 2  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 2  Breathed  Berkeley
+The Complete Monty Python's Flying Circus; All the Words, Volume 2  Breathed  Berkeley
+                                             The Dilbert Principle  Breathed  Berkeley
+                                                  The Grand Design  Breathed  Berkeley
+                                                  The Grand Design  Breathed  Berkeley
+                              The Hitchhiker's Guide to the Galaxy  Breathed  Berkeley
+                         The Restaurant at the End of the Universe  Breathed  Berkeley
+                                        The Universe in a Nutshell  Breathed  Berkeley
+                                           Thinking, Fast and Slow  Breathed  Berkeley
+OK (35 rows(s))
+
+6.  the author(s) and title for each book with the word “Time” or “Universe” in the title, sorted in ascending order by lastname, and then ascending by title.
+
+Query:
+select lastname, firstname, title
+	from books, authors
+	where books.title like '%Time%'
+	or books.title like '%Universe%'
+	order by lastname, title ASC;
+
+Result:
+ LASTNAME FIRSTNAME                                     TITLE
+--------- --------- -----------------------------------------
+    Adams     Scott                   A Brief History of Time
+    Adams   Douglas                   A Brief History of Time
+    Adams     Scott                 A Briefer History of Time
+    Adams   Douglas                 A Briefer History of Time
+    Adams     Scott                 A Briefer History of Time
+    Adams   Douglas                 A Briefer History of Time
+    Adams     Scott         Life, The Universe and Everything
+    Adams   Douglas         Life, The Universe and Everything
+    Adams     Scott The Restaurant at the End of the Universe
+    Adams   Douglas The Restaurant at the End of the Universe
+    Adams     Scott                The Universe in a Nutshell
+    Adams   Douglas                The Universe in a Nutshell
+ Breathed  Berkeley                   A Brief History of Time
+ Breathed  Berkeley                 A Briefer History of Time
+ Breathed  Berkeley                 A Briefer History of Time
+ Breathed  Berkeley         Life, The Universe and Everything
+ Breathed  Berkeley The Restaurant at the End of the Universe
+ Breathed  Berkeley                The Universe in a Nutshell
+  Chapman    Graham                   A Brief History of Time
+  Chapman    Graham                 A Briefer History of Time
+  Chapman    Graham                 A Briefer History of Time
+  Chapman    Graham         Life, The Universe and Everything
+  Chapman    Graham The Restaurant at the End of the Universe
+  Chapman    Graham                The Universe in a Nutshell
+   Cleese      John                   A Brief History of Time
+   Cleese      John                 A Briefer History of Time
+   Cleese      John                 A Briefer History of Time
+   Cleese      John         Life, The Universe and Everything
+   Cleese      John The Restaurant at the End of the Universe
+   Cleese      John                The Universe in a Nutshell
+  Gilliam     Terry                   A Brief History of Time
+  Gilliam     Terry                 A Briefer History of Time
+  Gilliam     Terry                 A Briefer History of Time
+  Gilliam     Terry         Life, The Universe and Everything
+  Gilliam     Terry The Restaurant at the End of the Universe
+  Gilliam     Terry                The Universe in a Nutshell
+  Hawking   Stephen                   A Brief History of Time
+  Hawking   Stephen                 A Briefer History of Time
+  Hawking   Stephen                 A Briefer History of Time
+  Hawking   Stephen         Life, The Universe and Everything
+  Hawking   Stephen The Restaurant at the End of the Universe
+  Hawking   Stephen                The Universe in a Nutshell
+     Idle      Eric                   A Brief History of Time
+     Idle      Eric                 A Briefer History of Time
+     Idle      Eric                 A Briefer History of Time
+     Idle      Eric         Life, The Universe and Everything
+     Idle      Eric The Restaurant at the End of the Universe
+     Idle      Eric                The Universe in a Nutshell
+    Jones     Terry                   A Brief History of Time
+    Jones     Terry                 A Briefer History of Time
+    Jones     Terry                 A Briefer History of Time
+    Jones     Terry         Life, The Universe and Everything
+    Jones     Terry The Restaurant at the End of the Universe
+    Jones     Terry                The Universe in a Nutshell
+ Kahneman    Daniel                   A Brief History of Time
+ Kahneman    Daniel                 A Briefer History of Time
+ Kahneman    Daniel                 A Briefer History of Time
+ Kahneman    Daniel         Life, The Universe and Everything
+ Kahneman    Daniel The Restaurant at the End of the Universe
+ Kahneman    Daniel                The Universe in a Nutshell
+ Mlodinow   Leonard                   A Brief History of Time
+ Mlodinow   Leonard                 A Briefer History of Time
+ Mlodinow   Leonard                 A Briefer History of Time
+ Mlodinow   Leonard         Life, The Universe and Everything
+ Mlodinow   Leonard The Restaurant at the End of the Universe
+ Mlodinow   Leonard                The Universe in a Nutshell
+   Newton     Isaac                   A Brief History of Time
+   Newton     Isaac                 A Briefer History of Time
+   Newton     Isaac                 A Briefer History of Time
+   Newton     Isaac         Life, The Universe and Everything
+   Newton     Isaac The Restaurant at the End of the Universe
+   Newton     Isaac                The Universe in a Nutshell
+    Palin   Michael                   A Brief History of Time
+    Palin   Michael                 A Briefer History of Time
+    Palin   Michael                 A Briefer History of Time
+    Palin   Michael         Life, The Universe and Everything
+    Palin   Michael The Restaurant at the End of the Universe
+    Palin   Michael                The Universe in a Nutshell
+Watterson      Bill                   A Brief History of Time
+Watterson      Bill                 A Briefer History of Time
+Watterson      Bill                 A Briefer History of Time
+Watterson      Bill         Life, The Universe and Everything
+Watterson      Bill The Restaurant at the End of the Universe
+Watterson      Bill                The Universe in a Nutshell
+OK (90 rows(s))
+7.  attempt to insert a new book into the books table, with an author_id that does not appear in the authors table (this attempt should fail, due to specifying an invalid foreign key for author_id)
+
+Query:
+insert into books (author_id, title, isbn, published)
+	values (0, 'Floccinaucinihilipiiification!', 00000000000, 2020);
+
+Result:
+Error: INSERT on table 'BOOKS' caused a violation of foreign key constraint 'SQL200311145302600' for key (0).  The statement has been rolled back.
+
+8.  insert yourself as a new author in the authors table (do not specify an author_id, Derby will do that for you, since author_id is the auto-generated primary key for the authors table)
+Query:
+insert into authors (lastname, firstname)
+	values ('Lewis II', 'Le Quient');
+	select * from authors;
+	
+Result:
+AUTHOR_ID  LASTNAME FIRSTNAME
+--------- --------- ---------
+        1     Adams   Douglas
+        2     Adams     Scott
+        3  Breathed  Berkeley
+        4   Chapman    Graham
+        5    Cleese      John
+        6   Gilliam     Terry
+        7   Hawking   Stephen
+        8      Idle      Eric
+        9     Jones     Terry
+       10  Kahneman    Daniel
+       11  Mlodinow   Leonard
+       12    Newton     Isaac
+       13     Palin   Michael
+       14 Watterson      Bill
+       15  Lewis II Le Quient
+OK (15 rows(s))
+	
+
+9.  retrieve the author_id from the authors table for your entry and insert a new book into the books table, using your author_id
+
+Query 1:
+
+select author_id
+	from authors
+	where authors.lastname='Lewis II' and authors.firstname='Le Quient';
+
+Result 1:
+
+AUTHOR_ID
+---------
+       15
+OK (1 rows(s))
+
+Query 2:
+insert into books (author_id, title, isbn, published)
+	values (15, 'Floccinaucinihilipiiification!', '0-000-00000-0', 2020);
+
+Result 2:
+insert into books (author_id, title, isbn, published)
+	values (15, 'Floccinaucinihilipiiification!', '0-000-00000-0', 2020);
+	select * from books;
+	OK (0 rows(s))
+
+10. now retrieve all of the information for your book (title, ISBN, published, lastname, firstname)
+Query:
+select title, lastname, firstname, isbn, published
+	from books, authors
+	where books.title='Floccinaucinihilipiiification!'
+	and books.author_id=authors.author_id;
+	
+Result:
+TITLE LASTNAME FIRSTNAME          ISBN PUBLISHED
+------------------------------ -------- --------- ------------- ---------
+Floccinaucinihilipiiification! Lewis II Le Quient 0-000-00000-0      2020
+OK (1 rows(s))

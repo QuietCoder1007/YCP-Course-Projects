@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main(void) {
+
+
+  // TODO: add your code for Part 1 here
+    int num, count;
+	float average;
+	
+	printf("Enter a value:");
+	scanf("%i", &num);
+	count =1;
+	
+	while (num != -1)
+	{
+		count++;
+		printf("Enter a value\n:");
+		scanf("%i", &num);
+			
+		num += num; 		
+	}		
+		average = num/count;
+		printf("The average of the %i values is %.2f\n", count, average);	
+  // TODO: add your code for Part 2 here
+
+
+
+
+
+}

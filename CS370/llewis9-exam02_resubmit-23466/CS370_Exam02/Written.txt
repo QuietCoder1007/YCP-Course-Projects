@@ -1,0 +1,67 @@
+Question 1:
+
+(a) (i) Ambient Reflection
+     Lighting effect: Uniform illumination of the surface
+     Vectors Used: L
+
+    (ii) Diffuse Relection
+     Lighting effect: Brightness of the light on the material based on the direction of the light
+     Vectors Used: L, N
+
+    (iii) Specular Reflection
+     Lighting effect: Create highlights on an object (particular for shiny materials)
+     Vectors Used: V, R
+
+    (iv) Gouraud Shading (Phong Model)
+     Lighting effect: Uniform illumination of the surface
+     Vectors Used: L, N. V. R
+
+
+(b) (i) DIRECTIONAL - Creates unidirectional lighting meaning that direction affects this light type more than others
+
+    (ii) POINT - Creates omnidirectional that evenly lights everywhere
+
+    (iii) SPOT - Creates unidirectional lighting meaning that direction affects this light type more than others
+
+(c)
+    Gouraud Shading
+        Pros:
+            More efficient rendering
+        Cons:
+            Less accurate visuals
+    Phong Shading
+        Pros:
+            More accurate visuals
+        Cons:
+            Less efficient rendering
+Question 2:
+• background - (0.6f, 0.3f, 0.8f, 1.0f)
+• object1 - (0.5f, 0.7f, 0.4f, 0.7f)
+• object2 - (0.7f, 0.8f, 0.7f, 0.6f)
+
+(a) 0.632, 0.796, 0.628, 0.676
+
+r1 = 0.7 * 0.5 + (1 - 0.7) * 0.6 = 0.35 + 0.18 = 0.53
+g1 = 0.7 * 0.7 + (1 - 0.7) * 0.3 = 0.49 + 0.09 = 0.79
+b1 = 0.7 * 0.4 + (1 - 0.7) * 0.8 = 0.28 + 0.24 = 0.52
+a1 = 0.7 * 0.7 + (1 - 0.7) * 1.0 = 0.49 + 0.30 = 0.79
+
+r2 = 0.6 * 0.7 + (1 - 0.6) * 0.53 = 0.42 + 0.212 = 0.632
+g2 = 0.6 * 0.8 + (1 - 0.6) * 0.79 = 0.48 + 0.316 = 0.796
+b2 = 0.6 * 0.7 + (1 - 0.6) * 0.52 = 0.42 + 0.208 = 0.628
+a2 = 0.6 * 0.6 + (1 - 0.6) * 0.79 = 0.36 + 0.316 = 0.676
+
+(b) 0.548, 0.670, 0.478, 0.718
+
+r1 = 0.6 * 0.7 + (1 - 0.6) * 0.6 = 0.42 + 0.24 = 0.66
+g1 = 0.6 * 0.8 + (1 - 0.6) * 0.3 = 0.48 + 0.12 = 0.60
+b1 = 0.6 * 0.7 + (1 - 0.6) * 0.8 = 0.42 + 0.24 = 0.66
+a1 = 0.6 * 0.6 + (1 - 0.6) * 1.0 = 0.36 + 0.40 = 0.76
+
+r2 = 0.7 * 0.5 + (1 - 0.7) * 0.66 = 0.35 + 0.198 = 0.548
+g2 = 0.7 * 0.7 + (1 - 0.7) * 0.60 = 0.49 + 0.180 = 0.670
+b2 = 0.7 * 0.4 + (1 - 0.7) * 0.66 = 0.28 + 0.198 = 0.478
+a2 = 0.7 * 0.7 + (1 - 0.7) * 0.76 = 0.49 + 0.228 = 0.718
+
+
+Question 3: Sure, if I can, I would do the Fall of next year

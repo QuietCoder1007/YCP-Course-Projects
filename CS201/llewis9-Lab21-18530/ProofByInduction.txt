@@ -1,0 +1,51 @@
+Lab 21: Proof By Induction
+
+Problem 1:
+
+f(n) = 2^n
+
+Basis Step:
+n = 1
+
+2^1 = 2
+
+Induction Step:
+f(n) = f(n+0)
+
+f(n) = 2^n * 2^0
+
+f(n+1) = 2^(n+1) = 2^n * 2^1
+
+f(n+c) = 2^(n+c) = 2^n * 2^c
+
+If f(n+1) is equivalent to 2^n * 2^1, then it is equivalent for all cases of f(n+c) or f(n)
+
+Problem 2:
+
+f(n) = 2^(n+1) − 1
+
+Basis step:
+n = 1
+
+2^(1+1) - 1 = 3
+
+Induction Step:
+f(n) = 2^(n+1) − 1
+
+f(n) = 2^n * 2^1 - 1
+
+2^n * 2^1 - 1 = 2^n * 2^1 - 1
+
+
+f(n+1) = 2^((n+1)+1) − 1 = 2^(n+2) − 1
+
+2^(n+2) − 1 = 2^n * 2^2 - 1
+
+2^n * 2^2 - 1 = 2^n * 4 - 1
+
+2^(n+c) − 1 = 2^n * 2^c - 1
+
+If f(n+1) is equivalent to 2^n * 2^2 - 1, then it is equivalent for all cases of f(n+c) or f(n)
+
+
+

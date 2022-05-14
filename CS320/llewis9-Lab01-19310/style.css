@@ -1,0 +1,149 @@
+@font-face {
+    font-family: SpaceInvaders;
+    src: url('PressStart2P-vaV7.ttf');
+}
+
+* {
+    font-family: SpaceInvaders;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: black;
+    background-image: url('https://wallpapercave.com/wp/wp2757861.gif');
+    background-position: 250px -20px;
+    overflow: auto;
+}
+
+h1 {
+    padding-top: 5px;
+    font-size: 40px;
+    text-align: center;
+    color: hsla(240, 100%, 60%, 0.677);
+    border: 5px rgba(0, 15, 240, 0.677);
+    border-style: solid none solid none;
+    position: sticky;
+}
+
+#img {
+    visibility: hidden;
+    z-index: -1;
+}
+
+h1:hover #img {
+    visibility: visible;
+    z-index: -1;
+}
+
+#left-content {
+    margin: 0 auto;
+    padding: 0;
+    width: 50vw;
+    height: 100vh;
+    float: left;
+}
+
+.left-content-container {
+    margin-top: 5vh;
+    margin-left: 10px;
+}
+
+#left-content h2 {
+    width: 54vw;
+    position: sticky;
+    font-size: 2em;
+    text-align: left;
+    color: rgba(0, 15, 240, 0.677);
+    border: 2px rgba(0, 15, 240, 0.677);
+    border-radius: 10px;
+    padding: 3px 0 0 10px;
+    animation: color-change 1s ease 0s infinite forwards;
+    border-style: none none solid none;
+}
+
+@keyframes color-change {
+    0% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0));
+    }
+    10% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 9%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    20% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 19%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    30% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 29%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    40% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 39%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    50% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 49%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    60% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 59%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    70% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 69%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    80% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 79%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    90% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0) 89%, rgba(0, 0, 0, 1.0) 1%, rgba(255, 255, 255, 1.0) 100%);
+    }
+    100% {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1.0));
+    }
+}
+
+#left-content p,
+li {
+    margin: 10px;
+    color: rgba(0, 30, 240, 0.9);
+    width: 54vw;
+    list-style: url('space-invaders.png');
+    font-size: 15px;
+    text-align: left;
+}
+
+#left-content p {
+    margin-left: 10px;
+}
+
+#left-content li {
+    margin-left: 30px;
+}
+
+#right-content {
+    margin: 35px 0 0 100px;
+    border-radius: 10px;
+    color: rgba(0, 15, 240, 0.677);
+    width: 500px;
+    height: 230px;
+    border: 1px rgba(0, 0, 240, 0.9);
+    border-style: solid;
+    float: left;
+}
+
+#right-content h2 {
+    width: 97.5%;
+    font-size: 25px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-left: 10px;
+    text-align: left;
+    color: rgba(0, 15, 240, 0.677);
+    border: 2px rgba(0, 15, 240, 0.677);
+    border-style: none none solid none;
+}
+
+#right-content p {
+    font-size: 15px;
+    line-height: 25px;
+    height: 6vw;
+    margin-top: -20px;
+    padding: 10px;
+    text-align: left;
+}

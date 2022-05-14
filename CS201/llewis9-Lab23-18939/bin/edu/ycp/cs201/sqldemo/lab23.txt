@@ -1,0 +1,71 @@
+
+Fetch all of F.G. Smallfinger's books
+select books.title
+    from books, authors
+    where books.author_id = authors.author_id
+        and authors.author_lastname = 'Smallfinger' and authors.author_firstname = 'F.G.';
+            TITLE
+-----------------
+A History of Hats
+OK (1 rows(s))
+
+
+fetch all of Callus Tacticus's books
+SQL> select books.title
+    from books, authors
+    where books.author_id = authors.author_id
+        and authors.author_lastname = 'Tacticus' and authors.author_firstname = 'Callus';
+                           TITLE
+--------------------------------
+             Sieges and Survival
+VENI VIDI VICI: A Soldier's Life
+OK (2 rows(s))
+
+
+Look for the author (last & first names) and isbn of "First Flights in Witchcraft"
+select author_lastname, author_firstname, books.isbn
+from books, authors
+where authors.author_id = books.author_id and books.title = 'First Flights in Witchcraft';
+AUTHOR_LASTNAME AUTHOR_FIRSTNAME          ISBN
+--------------- ---------------- -------------
+         Earwig          Lettice 5-9672-6521-X
+OK (1 rows(s))
+
+
+Try to insert a book with an invalid author_id
+insert into books(author_id, title, isbn)
+values(25, 'Jesus is da true OG AF', '09-11091-10-10');
+Error: INSERT on table 'BOOKS' caused a violation of foreign key constraint 'SQL191121032509650' for key (25).  The statement has been rolled back.
+
+
+Insert yourself into the author's list
+insert into authors(author_lastname, author_firstname)
+values('Lewis', 'Le Quient');
+OK (0 rows(s))
+
+
+Retrieve your author_id in the table
+select authors.author_id
+    from authors
+    where authors.author_lastname = 'Lewis' and authors.author_firstname = 'Le Quient';
+AUTHOR_ID
+---------
+        6
+OK (1 rows(s))
+
+
+Insert and retrieve your valid book with your valid author_id
+insert into books(author_id, title, isbn)
+values(6, 'Jesus is da true OG', '09-11091-10-9');
+OK (0 rows(s))
+SQL> select * from books;
+BOOK_ID AUTHOR_ID                            TITLE          ISBN
+------- --------- -------------------------------- -------------
+      1         1                A History of Hats 0-651-65165-4
+      2         2    Guide to Impossible Buildings 82-234-5475-0
+      3         3      First Flights in Witchcraft 5-9672-6521-X
+      4         4             Habits of the Wolves 91-33-65168-X
+      5         5              Sieges and Survival 0-651-65165-4
+      6         5 VENI VIDI VICI: A Soldier's Life 84-15978-99-5
+      9         6              Jesus is da true OG 09-11091-10-9
+OK (7 rows(s))
